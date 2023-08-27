@@ -1,0 +1,10 @@
+.box {
+    border: black solid 2px;
+    margin: 2%;
+    height: 100%;
+    width: 70%;
+    padding: 3px;
+    font-size: 18px;
+}
+
+@page {size: landscape;}

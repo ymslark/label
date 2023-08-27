@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
+    <link rel="stylesheet" href="label.css">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <div v-if="ok" class="container mt-5" id="form">
+            <div class="card mt-3">
+                <div class="card-body">
+                    <input class="form-control" type="text" v-model="penerima" placeholder="Penerima">
+                    <input class="form-control" type="text" v-model="noPenerima" placeholder="Nomor Penerima">
+                    <textarea class="form-control" type="text" v-model="alamatPenerima" placeholder="Alamat Penerima"></textarea>
+                    <input class="form-control" type="text" v-model="pengirim" placeholder="Pengirim">
+                    <input class="form-control" type="text" v-model="noPengirim" placeholder="Nomor Pengirim">
+                    <textarea class="form-control" type="text" v-model="alamatPengirim" placeholder="Alamat Pengirim"></textarea>                    
+                </div>
+            </div>
+        </div>
+        
+        <div v-else="!ok" class="print-area">
+            <div class="box">
+                <p>Penerima :</p>
+                <p>{{ ` ${penerima} (${noPenerima}) ` }}</p>
+                <p>{{ alamatPenerima }}</p>
+                <p>Pengirim :</p>
+                <p>{{ ` ${pengirim} (${noPengirim}) ` }}</p>
+                <p>{{ alamatPengirim }}</p>
+
+            </div>
+        </div>
+        <button v-on:click="printLabel()" v-if="ok">Print</button>
+    </div>
+        
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.min.js" integrity="sha384-+sLIOodYLS7CIrQpBjl+C7nPvqq+FbNUBDunl/OZv93DB7Ln/533i8e/mZXLi/P+" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script>
+        const vm = new Vue({
+            el: '#app',
+            data: {
+                penerima: '',
+                noPenerima: '',
+                alamatPenerima: '',
+                pengirim: '',
+                noPengirim: '',
+                alamatPengirim: '',
+                ok: true
+            },
+            methods: {
+                okchange(){
+                    this.ok = !this.ok
+                },
+                printLabel(){
+                    this.okchange()
+                    setTimeout(()=> window.print(),100)
+                    window.addEventListener('afterprint',()=>this.ok=true)
+                    
+
+                }
+            },
+            computed:{
+
+            }
+        })
+    </script>
+</body>
+</html>
