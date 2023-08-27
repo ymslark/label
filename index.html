@@ -9,7 +9,7 @@
 </head>
 <body>
     <div id="app">
-        <div v-if="ok" class="container mt-5" id="form">
+        <div class="container mt-5 form" id="form">
             <div class="card mt-3">
                 <div class="card-body">
                     <input class="form-control" type="text" v-model="penerima" placeholder="Penerima">
@@ -22,7 +22,7 @@
             </div>
         </div>
         
-        <div v-else="!ok" class="print-area">
+        <div class="print-area">
             <div class="box">
                 <p>Penerima :</p>
                 <p>{{ ` ${penerima} (${noPenerima}) ` }}</p>
@@ -33,7 +33,7 @@
 
             </div>
         </div>
-        <button v-on:click="printLabel()" v-if="ok">Print</button>
+        <button v-on:click="printLabel()" v-if="ok" class="form">Print</button>
     </div>
         
 
