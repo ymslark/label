@@ -9,6 +9,16 @@
 </head>
 <body>
     <div id="app">
+        <div class="print-area">
+            <div class="box">
+                <p>Penerima :</p>
+                <p>{{ ` ${penerima} (${noPenerima}) ` }}</p>
+                <p>{{ alamatPenerima }}</p>
+                <p>Pengirim :</p>
+                <p>{{ ` ${pengirim} (${noPengirim}) ` }}</p>
+                <p>{{ alamatPengirim }}</p>
+            </div>
+        </div>
         <div class="container mt-5 form" id="form">
             <div class="card mt-3">
                 <div class="card-body">
@@ -19,18 +29,6 @@
                     <input class="form-control" type="text" v-model="noPengirim" placeholder="Nomor Pengirim">
                     <textarea class="form-control" type="text" v-model="alamatPengirim" placeholder="Alamat Pengirim"></textarea>                    
                 </div>
-            </div>
-        </div>
-        
-        <div class="print-area">
-            <div class="box">
-                <p>Penerima :</p>
-                <p>{{ ` ${penerima} (${noPenerima}) ` }}</p>
-                <p>{{ alamatPenerima }}</p>
-                <p>Pengirim :</p>
-                <p>{{ ` ${pengirim} (${noPengirim}) ` }}</p>
-                <p>{{ alamatPengirim }}</p>
-
             </div>
         </div>
         <button v-on:click="printLabel()" v-if="ok" class="form">Print</button>
