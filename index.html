@@ -31,9 +31,11 @@
                     <input class="form-control" type="text" v-model="noPengirim" placeholder="Nomor Pengirim">
                     <textarea class="form-control" type="text" v-model="alamatPengirim" placeholder="Alamat Pengirim"></textarea>                    
                 </div>
+                <div class="card-footer">
+                    <button v-on:click="printLabel()" v-if="ok" class="btn btn-success form">Print</button>
+                </div>
             </div>
         </div>
-        <button v-on:click="printLabel()" v-if="ok" class="form">Print</button>
     </div>
         
 
